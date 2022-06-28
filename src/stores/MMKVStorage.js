@@ -1,6 +1,6 @@
 import {storage} from './index';
 
-export const MKKVStorage = {
+export const MMKVStorage = {
     setItem: (name, value) => {
         return storage.set(name, value);
     },
