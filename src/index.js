@@ -12,7 +12,8 @@ import {
     formComponents,
     viewComponents,
 } from 'components/FormGenerator/FormGeno';
-import { FormProvider } from 'components/FormGenerator/ContextProvider';
+import {FormProvider} from 'components/FormGenerator/ContextProvider';
+import {NativeBaseProvider} from 'native-base';
 
 const App = (props) => {
     React.useEffect(() => {
@@ -20,17 +21,19 @@ const App = (props) => {
     }, []);
     return (
         <Suspense fallback={<Text style={{marginTop: 200}}>Loading... </Text>}>
-            <FormProvider
-                formComponents={formComponents}
-                viewComponents={viewComponents}>
-                <SWRConfig value={{...RNConfig, use: [serialize]}}>
-                    <SafeAreaProvider>
-                        <NavigationContainer>
-                            <RootNavigator />
-                        </NavigationContainer>
-                    </SafeAreaProvider>
-                </SWRConfig>
-            </FormProvider>
+            <NativeBaseProvider>
+                <FormProvider
+                    formComponents={formComponents}
+                    viewComponents={viewComponents}>
+                    <SWRConfig value={{...RNConfig, use: [serialize]}}>
+                        <SafeAreaProvider>
+                            <NavigationContainer>
+                                <RootNavigator />
+                            </NavigationContainer>
+                        </SafeAreaProvider>
+                    </SWRConfig>
+                </FormProvider>
+            </NativeBaseProvider>
         </Suspense>
     );
 };

@@ -6,6 +6,10 @@ import merge from 'lodash/merge';
 import {screenDefaultOptions, tabBarDefaultOptions} from './options';
 import {useColorScheme} from 'react-native';
 import { useTranslation } from 'react-i18next';
+import {enableScreens, enableFreeze} from 'react-native-screens';
+
+enableFreeze(true)
+enableScreens();
 
 export const genStackNavigator = (screens) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
