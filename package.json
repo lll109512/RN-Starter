@@ -11,6 +11,7 @@
         "postinstall": "patch-package"
     },
     "dependencies": {
+        "@expo-google-fonts/roboto": "^0.2.2",
         "@genx/july": "^1.1.0",
         "@react-native-community/blur": "^3.6.0",
         "@react-native-community/netinfo": "^9.1.0",
@@ -19,6 +20,7 @@
         "@react-navigation/native-stack": "^6.5.0",
         "date-fns": "^2.28.0",
         "expo": "^45.0.0",
+        "expo-font": "^10.1.0",
         "expo-localization": "^13.0.0",
         "fast-json-stable-stringify": "^2.1.0",
         "formik": "^2.2.9",
