@@ -1,9 +1,8 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import * as Localization from 'expo-localization';
-import {MMKV} from 'react-native-mmkv';
 import resources from 'translations'
-const storage = new MMKV();
+import { storage } from 'stores';
 const STORE_LANGUAGE_KEY = 'language';
 
 // creating a language detection plugin using expo
@@ -21,10 +20,6 @@ const languageDetectorPlugin = {
                 //if language was stored before, use this language in the app
                 return callback(language);
             } else {
-                // console.log(
-                //     '333212',
-                //     `${Localization.locale}-${Localization.region}`,
-                // );
                 //if language was not stored yet, use device's locale
                 return callback(`${Localization.locale}-${Localization.region}`);
             }

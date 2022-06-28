@@ -8,6 +8,11 @@ import {SWRConfig} from 'swr';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootNavigator} from 'routes';
+import {
+    formComponents,
+    viewComponents,
+} from 'components/FormGenerator/FormGeno';
+import { FormProvider } from 'components/FormGenerator/ContextProvider';
 
 const App = (props) => {
     React.useEffect(() => {
@@ -15,13 +20,17 @@ const App = (props) => {
     }, []);
     return (
         <Suspense fallback={<Text style={{marginTop: 200}}>Loading... </Text>}>
-            <SWRConfig value={{...RNConfig, use: [serialize]}}>
-                <SafeAreaProvider>
-                    <NavigationContainer>
-                        <RootNavigator />
-                    </NavigationContainer>
-                </SafeAreaProvider>
-            </SWRConfig>
+            <FormProvider
+                formComponents={formComponents}
+                viewComponents={viewComponents}>
+                <SWRConfig value={{...RNConfig, use: [serialize]}}>
+                    <SafeAreaProvider>
+                        <NavigationContainer>
+                            <RootNavigator />
+                        </NavigationContainer>
+                    </SafeAreaProvider>
+                </SWRConfig>
+            </FormProvider>
         </Suspense>
     );
 };
