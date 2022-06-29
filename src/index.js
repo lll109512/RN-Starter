@@ -31,10 +31,13 @@ import {
     Roboto_900Black,
     Roboto_900Black_Italic,
 } from '@expo-google-fonts/roboto';
+import { useAuth } from 'hooks/useAuth';
 
 const App = (props) => {
+    const {init} = useAuth();
     React.useEffect(() => {
         Orientation.lockToPortrait();
+        init()
     }, []);
 
     const [fontsLoaded] = useFonts({

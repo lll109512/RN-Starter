@@ -17,10 +17,8 @@ export const genStackNavigator = (screens, stackProps = {}) => {
     useColorScheme(); // needs to be here to correctly change nav bar appearance
     const {t} = useTranslation('app');
     const Stack = createNativeStackNavigator();
-    const [
-        bgColor,
-        tintColor,
-    ] = useToken('colors', [
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [bgColor, tintColor] = useToken('colors', [
         useColorModeValue('warmGray.50', 'dark.100'),
         useColorModeValue('dark.100', 'warmGray.50'),
     ]);
@@ -29,7 +27,7 @@ export const genStackNavigator = (screens, stackProps = {}) => {
             key={it.name}
             name={it.name}
             component={it.component}
-            options={merge(screenDefaultOptions(), it.options({i18n:t}))}
+            options={merge(screenDefaultOptions(), it.options({i18n: t}))}
         />
     ));
 
