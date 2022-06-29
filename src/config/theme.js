@@ -61,7 +61,7 @@ export const theme = extendTheme({
         },
     },
 
-    // Make sure values below matches any of the keys in `fontConfig`
+    //TODO: has issues, not working
     fonts: {
         heading: 'Roboto',
         body: 'Roboto',
