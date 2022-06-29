@@ -3,12 +3,13 @@ import {Platform} from 'react-native';
 // import Icon from 'react-native-vector-icons/Ionicons';
 import Icon from '@expo/vector-icons/Ionicons';
 import { LineIcon } from 'components/LineIcons';
+import { useColorModeValue } from 'native-base';
 
 // import {getHeaderBlurEffect} from '../../utils/designSystem';
 
 export const screenDefaultOptions = () => ({
   headerShadowVisible: false,
-  headerTintColor: 'black',
+  // headerTintColor: 'black',
 
   // this setup makes large title work on iOS
   // ...Platform.select({
@@ -20,16 +21,17 @@ export const screenDefaultOptions = () => ({
   // }),
 });
 
-export const tabBarDefaultOptions = (routeName) => ({
-    headerShown: false,
-    tabBarActiveTintColor: 'black',
-    tabBarInactiveTintColor: 'gray',
-    tabBarStyle: {backgroundColor: 'white', borderTopWidth: 0, elevation: 0},
+export const tabBarDefaultOptions = ({
+    routeName,
+    activeIconColor,
+    inactiveIconColor,
+}) => ({
+    headerShown:false,
     tabBarIcon: ({focused, color, size}) => (
         <LineIcon
             name={getIconName(routeName, focused)}
             size={size}
-            color='secondary.600'
+            color={focused ? activeIconColor : inactiveIconColor}
         />
     ),
 });

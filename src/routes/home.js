@@ -8,7 +8,7 @@ export const HomeStack = () =>
             component: Home,
             options: ({i18n}) => ({
                 title: i18n('homePage'),
-                headerShown: false,
+                // headerShown: false,
             }),
         },
     ]);
