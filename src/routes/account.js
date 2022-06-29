@@ -8,6 +8,7 @@ export const AccountStack = () =>
             component: Account,
             options: ({i18n}) => ({
                 title: i18n('accountPage'),
+                headerShown: false,
             }),
         },
     ]);

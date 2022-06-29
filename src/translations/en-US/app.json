@@ -1,4 +1,7 @@
 {
     "homePage":"Home",
-    "home":"Home"
+    "accountPage":"Account",
+    "marketPage":"Market",
+    "discoverPage":"Discover",
+    "mePage":"Me"
 }

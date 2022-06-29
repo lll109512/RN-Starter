@@ -6,5 +6,6 @@ export const useLocale = () => {
     return {
         locale: i18n.language,
         fnsLngLib: i18n.language === 'zh-CN' ? zhCN : enAU,
+        ...i18n
     };
 };

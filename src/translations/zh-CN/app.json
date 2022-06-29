@@ -1,4 +1,7 @@
 {
     "homePage": "首页",
-    "home": "首页"
+    "accountPage": "账户",
+    "marketPage": "市场",
+    "discoverPage": "发现",
+    "mePage": "我"
 }
