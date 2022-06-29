@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@expo-google-fonts/roboto": "^0.2.2",
+        "@expo/vector-icons": "^13.0.0",
         "@genx/july": "^1.1.0",
         "@react-native-community/blur": "^3.6.0",
         "@react-native-community/netinfo": "^9.1.0",

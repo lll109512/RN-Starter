@@ -50,6 +50,7 @@ const App = (props) => {
         Roboto_700Bold_Italic,
         Roboto_900Black,
         Roboto_900Black_Italic,
+        LineIcons: require('./assets/fonts/LineIcons.ttf'),
     });
     if (!fontsLoaded) {
         return <></>;
