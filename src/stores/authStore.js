@@ -11,7 +11,7 @@ export const useAuthStore = create(
             setToken: (value) => set(() => ({token: value})),
             setExpiredat: (value) => set(() => ({expiredAt: value})),
             setUser: (value) => set(() => ({user: value})),
-            logout: () => set(() => ({token: null, expiredAt: null})),
+            logout: () => set(() => ({token: null, expiredAt: null, user:null})),
         }),
         {name: 'authStore', getStorage: MMKVStorage},
     ),

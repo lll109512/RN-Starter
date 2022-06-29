@@ -7,7 +7,7 @@ export const AccountStack = () =>
             name: 'AccountPage',
             component: Account,
             options: ({i18n}) => ({
-                title: i18n('account'),
+                title: i18n('accountPage'),
             }),
         },
     ]);

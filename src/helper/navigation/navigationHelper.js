@@ -11,7 +11,7 @@ import {enableScreens, enableFreeze} from 'react-native-screens';
 enableFreeze(true)
 enableScreens();
 
-export const genStackNavigator = (screens) => {
+export const genStackNavigator = (screens,stackProps={}) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useColorScheme(); // needs to be here to correctly change nav bar appearance
     const {t} = useTranslation('app')
@@ -25,7 +25,7 @@ export const genStackNavigator = (screens) => {
         />
     ));
 
-    return <Stack.Navigator>{stackScreens}</Stack.Navigator>;
+    return <Stack.Navigator {...stackProps}>{stackScreens}</Stack.Navigator>;
 };
 
 export const genTabNavigator = (screens) => {
