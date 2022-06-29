@@ -3,5 +3,11 @@
     "accountPage": "账户",
     "marketPage": "市场",
     "discoverPage": "发现",
-    "mePage": "我"
+    "mePage": "我",
+    "cancel": "取消",
+    "save": "保存",
+    "submitting": "提交中",
+    "pickDateTime": "选择日期与时间",
+    "pickTime": "选择时间",
+    "select":"选择"
 }

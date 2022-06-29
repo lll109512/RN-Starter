@@ -1,8 +1,9 @@
-import {Icon} from '@genx/react';
+import {Box, Spinner} from 'native-base';
 import React, {useState} from 'react';
 import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Animated, {useAnimatedStyle, withTiming} from 'react-native-reanimated';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
 const MAX_RELOAD_FAST_IMAGE = 3;
@@ -24,7 +25,7 @@ const FastImageWithLoading = (props) => {
                 {flex: 1, height: '100%', width: '100%', overflow: 'hidden'},
                 props.style,
             ]}>
-            <View
+            <Box
                 style={[
                     {backgroundColor: '#c9c9c9'},
                     StyleSheet.absoluteFillObject,
@@ -36,21 +37,15 @@ const FastImageWithLoading = (props) => {
                     props.style,
                 ]}>
                 {hasError && (
-                    <Icon
-                        name="cloud-offline-outline"
-                        type="ionicon"
-                        color={'white'}
-                    />
+                    <Ionicons name="cloud-offline-outline" color={'white'} />
                 )}
-                {isLoading && (
-                    <ActivityIndicator height={1000} width={'100%'} />
-                )}
-            </View>
+                {isLoading && <Spinner size="sm" />}
+            </Box>
 
             <AnimatedFastImage
                 key={fastImageKey}
                 {...props}
-                style={[props.style, rStyle]}
+                style={[{flex: 1}, props.style, rStyle]}
                 onLoadStart={() => {
                     setHasError(false);
                     setIsLoading(true);

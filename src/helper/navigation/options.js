@@ -1,9 +1,7 @@
 import React from 'react';
 import {Platform} from 'react-native';
-// import Icon from 'react-native-vector-icons/Ionicons';
 import Icon from '@expo/vector-icons/Ionicons';
 import { LineIcon } from 'components/LineIcons';
-import { useColorModeValue } from 'native-base';
 
 // import {getHeaderBlurEffect} from '../../utils/designSystem';
 

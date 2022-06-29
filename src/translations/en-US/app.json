@@ -3,5 +3,11 @@
     "accountPage":"Account",
     "marketPage":"Market",
     "discoverPage":"Discover",
-    "mePage":"Me"
+    "mePage":"Me",
+    "cancel":"Cancel",
+    "save":"Save",
+    "submitting":"Submitting",
+    "pickDateTime":"Pick date time",
+    "pickTime":"Pick time",
+    "select":"Select"
 }
