@@ -9,5 +9,6 @@
     "submitting":"Submitting",
     "pickDateTime":"Pick date time",
     "pickTime":"Pick time",
-    "select":"Select"
+    "select":"Select",
+    "pageErrorText":"Oops, something wrong happended!"
 }

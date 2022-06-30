@@ -4,13 +4,19 @@ import ErrorBoundary from 'react-native-error-boundary'
 import ErrorPage from './ErrorPage'
 import PropTypes from 'prop-types'
 import { Box, useColorMode, useColorModeValue } from 'native-base'
+import { designSystemColors } from 'config/theme'
 
 const SafeLoadingScreen = (props) => {
     const {isLoading,children,header} = props
     // const {colorMode} = useColorMode()
     return (
         <ErrorBoundary FallbackComponent={ErrorPage}>
-            <Box flex={1} bg={useColorModeValue('warmGray.50', 'dark.100')}>
+            <Box
+                flex={1}
+                bg={useColorModeValue(
+                    designSystemColors.light.white,
+                    designSystemColors.dark.white,
+                )}>
                 {header}
                 <View style={[styles.root, isLoading && styles.indicatorRoot]}>
                     {isLoading ? <ActivityIndicator /> : children}

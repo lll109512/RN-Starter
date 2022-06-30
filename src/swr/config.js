@@ -1,8 +1,9 @@
 import { AppState } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
+import { mmkvCacheProvider } from './SWRMMKVProvider';
 
 export const RNConfig = {
-    provider: () => new Map(),
+    provider: mmkvCacheProvider,
     isOnline() {
         /* 自定义网络状态检测器 */
         return true;
@@ -27,7 +28,7 @@ export const RNConfig = {
         // 订阅 app 状态更改事件
         const subscription = AppState.addEventListener(
             'change',
-            onAppStateChange
+            onAppStateChange,
         );
 
         return () => {
@@ -42,8 +43,7 @@ export const RNConfig = {
             console.log(state);
             if (state.isConnected) {
                 callback();
-            }else{
-                
+            } else {
             }
         });
         return () => {
