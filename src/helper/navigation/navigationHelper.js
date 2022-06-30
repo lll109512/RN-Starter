@@ -7,7 +7,13 @@ import {screenDefaultOptions, tabBarDefaultOptions} from './options';
 import {useColorScheme} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {enableScreens, enableFreeze} from 'react-native-screens';
-import {useColorMode, useColorModeValue, useToken} from 'native-base';
+import {
+    StatusBar,
+    useColorMode,
+    useColorModeValue,
+    useToken,
+} from 'native-base';
+import {designSystemColors} from 'config/theme';
 
 enableFreeze(true);
 enableScreens();
@@ -18,9 +24,16 @@ export const genStackNavigator = (screens, stackProps = {}) => {
     const {t} = useTranslation('app');
     const Stack = createNativeStackNavigator();
     // eslint-disable-next-line react-hooks/rules-of-hooks
+
     const [bgColor, tintColor] = useToken('colors', [
-        useColorModeValue('warmGray.50', 'dark.100'),
-        useColorModeValue('dark.100', 'warmGray.50'),
+        useColorModeValue(
+            designSystemColors.light.white,
+            designSystemColors.dark.white,
+        ),
+        useColorModeValue(
+            designSystemColors.light.dark,
+            designSystemColors.dark.dark,
+        ),
     ]);
     const stackScreens = screens.map((it) => (
         <Stack.Screen
@@ -62,7 +75,7 @@ export const genTabNavigator = (screens) => {
             options={it.options({i18n: t})}
         />
     ));
-    
+
     const [
         bgColor,
         activeTextColor,
@@ -70,11 +83,26 @@ export const genTabNavigator = (screens) => {
         activeIconColor,
         inactiveIconColor,
     ] = useToken('colors', [
-        useColorModeValue('warmGray.50', 'dark.100'),
-        useColorModeValue('yellow.400', 'yellow.400'),
-        useColorModeValue('warmGray.500', 'warmGray.400'),
-        useColorModeValue('yellow.400', 'yellow.400'),
-        useColorModeValue('warmGray.500', 'warmGray.400'),
+        useColorModeValue(
+            designSystemColors.light.white,
+            designSystemColors.dark.white,
+        ),
+        useColorModeValue(
+            designSystemColors.light.tabActive,
+            designSystemColors.dark.tabActive,
+        ),
+        useColorModeValue(
+            designSystemColors.light.tabInactive,
+            designSystemColors.dark.tabInactive,
+        ),
+        useColorModeValue(
+            designSystemColors.light.primary,
+            designSystemColors.dark.primary,
+        ),
+        useColorModeValue(
+            designSystemColors.light.tabInactive,
+            designSystemColors.dark.tabInactive,
+        ),
     ]);
 
     return (
@@ -104,14 +132,21 @@ export const genRootNavigator = (app, modals) => {
     const modalScreens = modals.map((m) => (
         <RootStack.Screen key={m.name} name={m.name} component={m.component} />
     ));
-
+    const {colorMode} = useColorMode();
     return (
-        <RootStack.Navigator screenOptions={{headerShown: false}}>
-            <RootStack.Group>{appScreen}</RootStack.Group>
+        <>
+            <StatusBar
+                barStyle={
+                    colorMode === 'dark' ? 'light-content' : 'dark-content'
+                }
+            />
+            <RootStack.Navigator screenOptions={{headerShown: false}}>
+                <RootStack.Group>{appScreen}</RootStack.Group>
 
-            <RootStack.Group screenOptions={{presentation: 'modal'}}>
-                {modalScreens}
-            </RootStack.Group>
-        </RootStack.Navigator>
+                <RootStack.Group screenOptions={{presentation: 'modal'}}>
+                    {modalScreens}
+                </RootStack.Group>
+            </RootStack.Navigator>
+        </>
     );
 };

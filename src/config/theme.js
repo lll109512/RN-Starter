@@ -1,6 +1,25 @@
 import { extendTheme } from "native-base";
 import { storage } from "stores";
 
+export const designSystemColors = {
+    light: {
+        primary: 'yellow.400',
+        primaryPressed: 'yellow.500',
+        white: 'warmGray.50',
+        dark: 'dark.100',
+        tabActive: 'yellow.400',
+        tabInactive: 'warmGray.500',
+    },
+    dark: {
+        primary: 'yellow.400',
+        primaryPressed: 'yellow.500',
+        white: 'dark.100',
+        dark: 'warmGray.50',
+        tabActive: 'yellow.400',
+        tabInactive: 'warmGray.400',
+    },
+};
+
 export const colorModeManager = {
     get: async () => {
         try {
@@ -32,6 +51,37 @@ const newColorTheme = {
 
 export const theme = extendTheme({
     colors: newColorTheme,
+    components: {
+        Button: {
+            variants: {
+                primary: ({colorMode, colorScheme}) => {
+                    return {
+                        backgroundColor: designSystemColors.light.primary,
+                        _text: {
+                            color: designSystemColors.light.dark,
+                        },
+                        _pressed: {
+                            backgroundColor: designSystemColors.light.primaryPressed,
+                        },
+                    };
+                },
+                cancel: ({colorMode, colorScheme}) => {
+                    return {
+                        backgroundColor: 'warmGray.200',
+                        _text: {
+                            color: designSystemColors.light.dark,
+                        },
+                        _pressed: {
+                            backgroundColor: 'warmGray.300',
+                        },
+                    };
+                },
+            },
+            defaultProps:{
+                variant:"primary"
+            }
+        },
+    },
     fontConfig: {
         Roboto: {
             100: {

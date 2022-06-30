@@ -33,7 +33,7 @@ const ModalView = (props) => {
                             {onClose && (
                                 <Button
                                     flexGrow={1}
-                                    variant={'solid'}
+                                    variant={'cancel'}
                                     onPress={onClose}>
                                     {cancelTitle}
                                 </Button>
@@ -41,7 +41,7 @@ const ModalView = (props) => {
                             {onSave && (
                                 <Button
                                     flexGrow={1}
-                                    variant={'solid'}
+                                    variant={'primary'}
                                     onPress={onSave}
                                     title={saveTitle}
                                     isLoading={isConfirmLoading}

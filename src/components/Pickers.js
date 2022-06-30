@@ -8,6 +8,8 @@ import {TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useLocale} from 'hooks/useLocale';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useColorModeValue, useToken } from 'native-base';
+import { designSystemColors } from 'config/theme';
 const screen = Dimensions.get('screen');
 
 export const DatePickerModal = (props) => {
@@ -15,6 +17,7 @@ export const DatePickerModal = (props) => {
     const {open, onClose, datePickerProps, onSave,title} = props;
     const [date, setDate] = useState(props.date || new Date());
     const {locale} = useLocale();
+    const textColor = useToken('colors', useColorModeValue(designSystemColors.light.dark,designSystemColors.dark.dark));
     useEffect(() => {
         if (props.date) {
             setDate(props.date);
@@ -36,6 +39,7 @@ export const DatePickerModal = (props) => {
                 onDateChange={setDate}
                 mode="date"
                 locale={locale}
+                textColor={textColor}
                 {...datePickerProps}
             />
         ),

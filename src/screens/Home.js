@@ -12,8 +12,8 @@ const Home = () => {
         <SafeLoadingScreen>
             <SafeAreaView edges={['top']}>
                 <Text
-                    color="cyan.800"
-                    fontSize={'4xl'}
+                    // color="cyan.800"
+                    // fontSize={'4xl'}
                     >
                     language: {locale.locale}
                 </Text>

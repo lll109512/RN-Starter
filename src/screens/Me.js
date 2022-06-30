@@ -4,7 +4,6 @@ import SafeLoadingScreen from 'components/SafeLoadingScreen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import { useLocale } from 'hooks/useLocale';
 import { Box, Button, Spinner, useDisclose } from 'native-base';
-import ModalView from 'components/ModalView';
 import FastImageWithLoading from 'components/FastImageWithLoading';
 import FastImage from 'react-native-fast-image';
 import { DateTimePickerModal } from 'components/Pickers';
